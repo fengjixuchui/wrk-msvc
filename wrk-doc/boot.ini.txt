@@ -1,0 +1,2 @@
+multi(0)disk(0)rdisk(0)partition(1)\WINDOWS="WRK" /kernel=wrkamd64.exe
+multi(0)disk(0)rdisk(0)partition(1)\WINDOWS="WRK Debug" /kernel=wrkamd64.exe /debug /debugport=com1
