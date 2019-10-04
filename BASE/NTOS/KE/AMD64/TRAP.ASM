@@ -2132,10 +2132,14 @@ KiSS60: mov     eax, STATUS_INVALID_SYSTEM_SERVICE ; set return status
 
         TRAP_ENTRY KiServiceLinkage
 
-        ;.allocstack 0
+		sub rsp, 16
+		.allocstack 16
+
 
         END_PROLOGUE
 
+		; function body
+		add rsp, 16
         ret                             ;
 
         TRAP_END  KiServiceLinkage
