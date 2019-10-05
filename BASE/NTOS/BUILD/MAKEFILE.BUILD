@@ -19,7 +19,7 @@ archml    = ml
 !else
 targdefs  = -D_WIN64 -D_AMD64_ -DAMD64
 targaopts = 
-targcopts = -Wp64 -Zi -Od -EHs-c- /Od -Gs12288 -GL- -MT -U_MT
+targcopts = -Zi -Od -EHs-c- /Od -Gs12288 -GL- -MT -U_MT
 targlopts =	-IGNORE:4108,4088,4218,4218,4235
 machine   = amd64
 archml    = ml64
