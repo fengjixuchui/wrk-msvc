@@ -27,7 +27,7 @@
     <NMakeReBuildCommandLine>clean-msvcx64.bat &amp; build-msvcx64.bat</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>clean-msvcx64.bat</NMakeCleanCommandLine>
     <NMakeOutput>$(ProjectDir)BASE\NTOS\BUILD\EXE\wrkamd64.exe</NMakeOutput>
-    <NMakePreprocessorDefinitions>_WIN64;_AMD64_;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakePreprocessorDefinitions>_WIN64;_AMD64_;AMD64;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeIncludeSearchPath>$(ProjectDir)Public;$(ProjectDir)Base;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <NMakeForcedIncludes>$(ProjectDir)Public;$(ProjectDir)Base;$(NMakeForcedIncludes)</NMakeForcedIncludes>
   </PropertyGroup>

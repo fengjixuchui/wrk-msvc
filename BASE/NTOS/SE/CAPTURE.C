@@ -676,7 +676,13 @@ Return Value:
 
     PAGED_CODE();
 
-	DbgPrint("[SML] SeReleaseSecurityDescriptor is called [%p]", (void*)CapturedSecurityDescriptor);
+	static BOOLEAN IsCalled = FALSE;
+	if (!IsCalled)
+	{
+		IsCalled = TRUE;
+		DbgPrint("[SML] SeReleaseSecurityDescriptor is called [%p]\n", (void*)CapturedSecurityDescriptor);
+	}
+	
 
     if ( ((RequestorMode == KernelMode) && (ForceCapture == TRUE)) ||
           (RequestorMode == UserMode ) ) {
@@ -1824,7 +1830,12 @@ Return Value:
 
     PAGED_CODE();
 
-	DbgPrint("[SML] SeReleaseLuidAndAttributesArray is called [%p]", (void*)CapturedArray);
+	static BOOLEAN IsCalled = FALSE;
+	if (!IsCalled)
+	{
+		IsCalled = TRUE;
+		DbgPrint("[SML] SeReleaseLuidAndAttributesArray is called [%p]\n", (void*)CapturedArray);
+	}
 
     if ( ((RequestorMode == KernelMode) && (ForceCapture == TRUE)) ||
           (RequestorMode == UserMode )) {
