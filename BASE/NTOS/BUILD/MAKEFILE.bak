@@ -48,7 +48,7 @@ ntosmerge    = -merge:PAGECONST=PAGE -merge:INITCONST=INIT -merge:INITDATA=INIT 
 ntosversion  = -release -version:5.2 -osversion:5.2 -subsystem:native,5.02 
 
 ntoslinkopts = $(ntosversion) $(ntosmerge) -SECTION:INIT,d -OPT:NOREF -OPT:NOICF -INCREMENTAL:NO \
- -FULLBUILD -debug $(archlinkopts) -driver
+ -FULLBUILD -debug $(archlinkopts) -pdbcompress -driver
 
 kernelexp:
 	copy ..\init\ntoskrnl.src+..\init\$(targ)def.src $(OBJ)\$(kernel).pp
