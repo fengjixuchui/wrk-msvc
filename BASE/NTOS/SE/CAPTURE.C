@@ -676,6 +676,8 @@ Return Value:
 
     PAGED_CODE();
 
+	DbgPrint("[SML] SeReleaseSecurityDescriptor is called [%p]", (void*)CapturedSecurityDescriptor);
+
     if ( ((RequestorMode == KernelMode) && (ForceCapture == TRUE)) ||
           (RequestorMode == UserMode ) ) {
         if ( CapturedSecurityDescriptor ) {
@@ -1821,6 +1823,8 @@ Return Value:
     //
 
     PAGED_CODE();
+
+	DbgPrint("[SML] SeReleaseLuidAndAttributesArray is called [%p]", (void*)CapturedArray);
 
     if ( ((RequestorMode == KernelMode) && (ForceCapture == TRUE)) ||
           (RequestorMode == UserMode )) {
