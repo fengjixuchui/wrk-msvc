@@ -3,7 +3,7 @@
 Feture:
 - create visual studio solution/project file for WRK sources
 - disable optimization for easy debug 
-- built wrk (windows research kernel) using msvc 2019
+- built wrk (windows research kernel) using msvc 2019 compiler toolchain
 
 
 How to build:
