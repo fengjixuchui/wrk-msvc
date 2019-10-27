@@ -12,7 +12,7 @@
 !if "$(targ)" == "i386"
 targdefs  = -D_X86_=1 -Di386=1 -DSTD_CALL -DFPO=0
 targaopts = -safeseh -coff -Zm
-targcopts = -Gm- -Gz -GX- -G6 -Ze -Gi- -QIfdiv- -Zi -Od -Oy-
+targcopts = -Gm- -Gz -EHs-c- -G6 -Ze -Gi- -QIfdiv- -Zi -Od -Oy- -GS-
 targlopts =	
 machine   = x86
 archml    = ml
