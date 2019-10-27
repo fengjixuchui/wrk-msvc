@@ -992,7 +992,7 @@ cPublicProc _KiIsNpxPresent,0
         and     eax, NOT (CR0_ET+CR0_MP+CR0_TS+CR0_EM)
         mov     cr0, eax
         xor     edx, edx
-.287
+.387
         fninit                          ; Initialize NPX
         mov     ecx, 5A5A5A5Ah          ; Put non-zero value
         push    ecx                     ;   into the memory we are going to use

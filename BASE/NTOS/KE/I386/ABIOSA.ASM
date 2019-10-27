@@ -127,18 +127,22 @@ STACK16_TO_STACK32      macro   Stack32
         popfd
 endm
 
+
+sml_dword_ptr TEXTEQU <DWORD PTR>
+sml_word_ptr TEXTEQU <WORD PTR>
+
 COPY_CALL_FRAME macro FramePtr
 
-        mov     [FramePtr].TsEax,eax
-        mov     [FramePtr].TsEbx,ebx
-        mov     [FramePtr].TsEcx,ecx
-        mov     [FramePtr].TsEdx,edx
-        mov     [FramePtr].TsEsi,esi
-        mov     [FramePtr].TsEdi,edi
-        mov     [FramePtr].TsEbp,ebp
-        mov     [FramePtr].TsHardwareEsp,esp
-        mov     [FramePtr].TsSegFs,fs
-        mov     [FramePtr].TsSegCs,cs
+        mov    sml_dword_ptr [FramePtr].TsEax,eax
+        mov    sml_dword_ptr [FramePtr].TsEbx,ebx
+        mov    sml_dword_ptr [FramePtr].TsEcx,ecx
+        mov    sml_dword_ptr [FramePtr].TsEdx,edx
+        mov    sml_dword_ptr [FramePtr].TsEsi,esi
+        mov    sml_dword_ptr [FramePtr].TsEdi,edi
+        mov    sml_dword_ptr [FramePtr].TsEbp,ebp
+        mov    sml_dword_ptr [FramePtr].TsHardwareEsp,esp
+        mov    sml_word_ptr [FramePtr].TsSegFs,fs
+        mov    sml_word_ptr [FramePtr].TsSegCs,cs
 endm
         page ,132
         subttl  "Abios Support Code"
@@ -280,7 +284,7 @@ endif
         push    word ptr KGDT_CODE16
         push    word ptr (offset FLAT:Kac40 - offset FLAT:_KiI386CallAbios@16)
         push    KGDT_CODE16
-        push    offset FLAT:Kac30 - offset FLAT:_KiI386CallAbios@16
+        push    sml_word_ptr (offset FLAT:Kac30 - offset FLAT:_KiI386CallAbios@16)
         retf
 
 Kac30:
@@ -425,7 +429,7 @@ endif
     ; Switch to 16bit CS
     ;
         push    KGDT_CODE16
-        push    offset FLAT:Kbf30 - offset FLAT:_KiI386CallAbios@16
+        push    sml_word_ptr (offset FLAT:Kbf30 - offset FLAT:_KiI386CallAbios@16)
         retf
 
 Kbf30:
@@ -618,7 +622,7 @@ endif
 ; Switch to 16bit CS
 ;
         push    KGDT_CODE16
-        push    offset FLAT:Kbfex30 - offset FLAT:_KiI386CallAbios@16
+        push    sml_word_ptr (offset FLAT:Kbfex30 - offset FLAT:_KiI386CallAbios@16)
         retf
 
 Kbfex30:
